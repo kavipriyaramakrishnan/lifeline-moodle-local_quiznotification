@@ -2,7 +2,7 @@
 $string['notificationemailid'] = 'Notification Email ID';
 $string['notificationemaildesc'] = 'If you have more than one email ID, please append it using ";"';
 $string['notificationemailbody'] = 'Hi {$a->name},
-Your attempt on the quiz {$a->quiz} for the course for the course {$a->course} has been graded.
+Your attempt on the quiz "{$a->quiz}" for the course "{$a->course}" ({$a->link}) has been graded.
 Regards,
 Lifeline Administration';
 $string['notificationemailsub'] = 'Quiz attempt graded';

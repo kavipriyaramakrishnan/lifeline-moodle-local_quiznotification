@@ -20,7 +20,6 @@ class observer {
         global $DB, $CFG;
         $grade_gradesid = $event->objectid;
         $userid = $DB->get_field('grade_grades', 'userid', array('id' => $grade_gradesid));
-
-	    quiznotification_email($userid, $event->courseid, $grade_gradesid);
+        quiznotification_email($userid, $event->courseid, $grade_gradesid, $event->userid);
     }
 }

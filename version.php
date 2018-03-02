@@ -10,7 +10,7 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2018020911;
+$plugin->version   = 2018020913;
 $plugin->component = 'local_quiznotification';
 $plugin->cron      = 0;
 $plugin->maturity  = MATURITY_STABLE;
