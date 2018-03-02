@@ -8,6 +8,7 @@ function quiznotification_email($userid, $courseid, $gradesid, $eventuserid) {
     $user = $DB->get_record('user', array('id' => $userid));
     $itemid = $DB->get_field('grade_grades', 'itemid', array('id' => $gradesid));
     $quizname = $DB->get_field('grade_items', 'itemname', array('id' => $itemid, 'courseid' => $courseid, 'itemmodule' => 'quiz'));
+    $instanceid = $DB->get_field('grade_items', 'iteminstance', array('id' => $itemid, 'courseid' => $courseid, 'itemmodule' => 'quiz'));
     if ($eventuserid !== -1) {
         // Email Quiz Submission Notification
         // Form Email.
@@ -34,7 +35,8 @@ function quiznotification_email($userid, $courseid, $gradesid, $eventuserid) {
         $emailbody = get_string('notificationemailbody', 'local_quiznotification', $a);
         $emailbodhtml = text_to_html($emailbody, null, false, true);
         $emailsub = get_string('notificationemailsub', 'local_quiznotification');
-        if (($courseid == 193) || ($courseid == 196)) {
+        $emailind = $DB->get_field('quiz_notifyemail', 'notify', array('quizid' => $instanceid));
+        if ($emailind) {
             $ret = email_to_user($to, $from, $emailsub, $emailbody, $emailbodhtml);
         }
     }
